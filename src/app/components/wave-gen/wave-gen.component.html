@@ -1,0 +1,94 @@
+<div>
+  <svg class="gen-view" width="500" height="500">
+  </svg>
+</div>
+<div class="controls-c m-3 p-2">
+  <div class="text-center">
+    <a [href]="getUrl()">Link</a>
+  </div>
+  <form>
+    <div class="form-group">
+      <label>Resolution</label>
+      <input type="number" class="form-control" name="resolution" [(ngModel)]="params.resolution" (ngModelChange)="update()">
+    </div>
+    <div class="form-group">
+      <label>Line count</label>
+      <input type="number" class="form-control" name="lineCount" [(ngModel)]="params.lineCount" (ngModelChange)="update()">
+    </div>
+    <div class="form-group">
+      <label>Line step</label>
+      <input type="number" class="form-control" name="lineStep" [(ngModel)]="params.lineStep" (ngModelChange)="update()">
+    </div>
+    <div class="form-group">
+      <label>Line length</label>
+      <input type="number" class="form-control" name="lineLength" [(ngModel)]="params.lineLength" (ngModelChange)="update()">
+    </div>
+    <div class="form-group">
+      <label>Line position randomization</label>
+      <input type="number" class="form-control" name="linePositionRand" [(ngModel)]="params.linePositionRand" (ngModelChange)="update()">
+    </div>
+    <div class="form-group">
+      <label>Amplitude</label>
+      <input type="number" class="form-control" name="amplitude" [(ngModel)]="params.amplitudeDefault" (ngModelChange)="update()">
+    </div>
+    <div class="form-group">
+      <label>Amplitude randomization</label>
+      <input type="number" class="form-control" name="amplitudeRand" [(ngModel)]="params.amplitudeRand" (ngModelChange)="update()">
+    </div>
+    <div class="form-group">
+      <label>Period</label>
+      <input type="number" class="form-control" name="period" [(ngModel)]="params.periodDefault" (ngModelChange)="update()">
+    </div>
+    <div class="form-group">
+      <label>Period randomization</label>
+      <input type="number" class="form-control" name="periodRand" [(ngModel)]="params.periodRand" (ngModelChange)="update()">
+    </div>
+    <div class="form-group">
+      <label>Shift</label>
+      <input type="number" class="form-control" name="shift" [(ngModel)]="params.shiftDefault" (ngModelChange)="update()">
+    </div>
+    <div class="form-group">
+      <label>Shift randomization</label>
+      <input type="number" class="form-control" name="shiftRand" [(ngModel)]="params.shiftRand" (ngModelChange)="update()">
+    </div>
+  </form>
+
+  <div class="wt-3">
+    <h1>Subwaves</h1>
+    <div class="border p-2 mb-2" *ngFor="let wave of params.waves; index as index">
+      <form>
+        <div class="form-group">
+          <label>Amplitude</label>
+          <input type="number" class="form-control" name="amplitude" [(ngModel)]="wave.amplitudeDefault" (ngModelChange)="update()">
+        </div>
+        <div class="form-group">
+          <label>Amplitude randomization</label>
+          <input type="number" class="form-control" name="amplitudeRand" [(ngModel)]="wave.amplitudeRand" (ngModelChange)="update()">
+        </div>
+        <div class="form-group">
+          <label>Period</label>
+          <input type="number" class="form-control" name="period" [(ngModel)]="wave.periodDefault" (ngModelChange)="update()">
+        </div>
+        <div class="form-group">
+          <label>Period randomization</label>
+          <input type="number" class="form-control" name="periodRand" [(ngModel)]="wave.periodRand" (ngModelChange)="update()">
+        </div>
+        <div class="form-group">
+          <label>Shift</label>
+          <input type="number" class="form-control" name="shift" [(ngModel)]="wave.shiftDefault" (ngModelChange)="update()">
+        </div>
+        <div class="form-group">
+          <label>Shift randomization</label>
+          <input type="number" class="form-control" name="shiftRand" [(ngModel)]="wave.shiftRand" (ngModelChange)="update()">
+        </div>
+      </form>
+      <div class="text-center">
+        <button class="btn btn-primary" (click)="deleteWave(index)">Delete</button>
+      </div>
+    </div>
+    <div class="text-center mt-2">
+      <button class="btn btn-primary" (click)="addWave()">Add</button>
+    </div>
+  </div>
+
+</div>
